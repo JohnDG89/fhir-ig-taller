@@ -1,0 +1,40 @@
+POST http://localhost:8080/fhir/Patient/$validate HTTP/1.1
+Content-Type: application/fhir+json
+Accept: application/fhir+json
+
+{
+  "resourceType": "Patient",
+  "id": "example",
+  "meta": {
+    "profile": [
+      "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CorePacienteCl"
+    ]
+  },
+  "identifier": [
+    {
+      "use": "usual",
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "MR"
+          }
+        ]
+      },
+      "system": "http://hospital.smarthealthit.org",
+      "value": "12345"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": [
+        "John"
+      ]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1980-01-01"
+}
